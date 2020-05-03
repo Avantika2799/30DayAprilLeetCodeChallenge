@@ -1,0 +1,24 @@
+Question link:
+/*
+https://leetcode.com/explore/featured/card/30-day-leetcoding-challenge/528/week-1/3285/
+*/
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int pos=0;
+        int neg=INT_MIN;
+        if(nums.size()==1)
+            return nums[0];
+        for(int i=0;i<nums.size();i++)
+        {
+            pos=pos+nums[i];
+            
+              if(neg<pos)
+                neg=pos;
+             
+             if(pos<0)
+                pos=0;
+        }
+        return neg;
+    }
+};
